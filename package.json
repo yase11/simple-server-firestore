@@ -1,0 +1,39 @@
+{
+  "name": "server-firestore",
+  "version": "1.0.0",
+  "description": "Node server with firebase integration and other popular libraries",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint",
+    "lintfix": "eslint src --fix --cache",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "firebase",
+    "nodejs",
+    "server"
+  ],
+  "author": "Hildebrand Ligtas",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^10.0.0",
+    "helmet": "^4.6.0",
+    "jest": "^27.3.1",
+    "supertest": "^6.1.6",
+    "uuid": "^8.3.2"
+  }
+}

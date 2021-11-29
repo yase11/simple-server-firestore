@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isValidCorporation(obj) {
+        return (
+          obj.corporationName is string 
+          && obj.subscriptionId is string 
+          && obj.taxId is string 
+          && obj.legalName is string
+          && obj.street is string
+          && obj.city is string
+          && obj.state is string
+          && obj.zipCode is string
+          && obj.adminName is string
+          && obj.telephone is string
+          && obj.email is string
+          && obj.isActive is bool
+          && obj.s is list
+          && obj.warehouses is list
+          && obj.users is list
+          && obj.n is string
+          && obj.lastUpdated is string
+        );
+    }
+    match /corporations/{corporation} {
+      // allow create: if (request.resource.data.corporationName is string);
+      allow create: if isValidCorporation(request.resource.data) && request.auth != null;
+      allow delete: if request.auth.token.isAdmin;
+    }
+  }
+}
