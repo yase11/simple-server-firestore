@@ -13,7 +13,7 @@ require('dotenv').config();
 app.use(helmet());
 app.use(express.json({ limit: '50mb', extended: true }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(cors({ origin: ['http://localhost:4200', 'http://localhost:8100']}));
+app.use(cors({ origin: ['http://localhost:4200', 'http://localhost:8100', 'https://firestore-b3b99.web.app']}));
 
 /**
  * Initialize router for different routes
