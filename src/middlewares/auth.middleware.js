@@ -28,6 +28,8 @@ const auth = async (req, res, next) => {
 
     const { token } = req.body;
 
+    console.log({token});
+
     switch (true) {
         case (!!token): {
             await getToken(token, res);

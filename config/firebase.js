@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 
 const { initializeApp } = require('firebase-admin/app');
+const { credential } = require('firebase-admin');
 const { getAuth } = require('firebase-admin/auth');
 const { getFirestore } = require('firebase-admin/firestore');
 // const {getSecurityRules } = require('firebase-admin/security-rules');
@@ -12,21 +13,31 @@ require('dotenv').config();
  * Firebase application object in order the firebase API
  * to work and has valid credentials.
  */
-const fireBaseAdmin = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGINGSENDERID,
-    appId: process.env.APP_ID
-}
+
+// const fireBaseAdmin = {
+//     apiKey: process.env.FIREBASE_API_KEY,
+//     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+//     projectId: process.env.FIREBASE_PROJECT_ID,
+//     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+//     messagingSenderId: process.env.MESSAGINGSENDERID,
+//     appId: process.env.APP_ID
+// }
 
 // console.log('fireBaseAdmin ', fireBaseAdmin);
 
 /**
  * Initialize firebase Admin SDK
  */
-const appAdmin = initializeApp(fireBaseAdmin);
+
+
+// const appAdmin = initializeApp(fireBaseAdmin);
+
+const serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIAL);
+
+const appAdmin = initializeApp({
+    credential: credential.cert(serviceAccount),
+    projectId: process.env.FIREBASE_PROJECT_ID
+});
 
 // /**
 //  * Initialize security rules firestore
