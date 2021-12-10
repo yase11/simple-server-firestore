@@ -4,6 +4,7 @@ const selectAccountCustomClaims = require('./select-account-claims');
 const completedCorporationClaims = require('./completed-corporation-claims');
 const completedCompanyClaims = require('./completed-company-claims');
 const completedUserClaims = require('./completed-user-claims');
+const applyCompanyClaims = require('./apply-company-claims');
 
 const addUser = async (object) => {
     try {
@@ -32,5 +33,6 @@ module.exports = {
     selectAccountCustomClaims,
     completedCorporationClaims,
     completedCompanyClaims,
-    completedUserClaims
+    completedUserClaims,
+    applyCompanyClaims
 };

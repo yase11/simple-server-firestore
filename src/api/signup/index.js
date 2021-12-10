@@ -68,6 +68,7 @@ router.post('', async (req, res) => {
 
 router.use('/account', require('./account'));
 router.use('/corporation', require('./corporation'));
+router.use('/apply-company', require('./apply-company'));
 router.use('/company', require('./company'));
 router.use('/user', require('./user'));
 
